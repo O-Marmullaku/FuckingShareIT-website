@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FuckingShareIT — Windows file sharing, made simple</title>
+  <meta name="description" content="Choose a file. Choose a PC. Save a copy. FuckingShareIT makes sharing files between Windows PCs on the same private network straightforward.">
+  <meta name="theme-color" content="#0b0e12">
+  <link rel="canonical" href="https://fuckingshareit.com/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:dark;font-family:"Segoe UI",system-ui,sans-serif;color:#f5f6f8;background:#0b0e12;font-synthesis:none}
+    *{box-sizing:border-box}body{margin:0}a{color:inherit;text-underline-offset:.22em}a:hover{color:#ff6686}a:focus-visible{outline:3px solid #ffd66e;outline-offset:5px}::selection{background:#ff5273;color:#0b0e12}
+    .wrap{width:min(100% - 48px,1040px);margin-inline:auto}header{padding-block:30px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;text-decoration:none}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#ff5273;color:#0b0e12;font-size:15px}.status{color:#bbc6d4;font-size:14px}
+    main{padding-block:70px 84px}h1{max-width:17ch;margin:0;font-size:clamp(42px,6.6vw,76px);line-height:1.08;letter-spacing:-.035em;text-wrap:balance}h1 span{color:#ff6686}.lead{max-width:49ch;margin-block:26px 46px;font-size:21px;line-height:1.6;color:#bbc6d4}
+    .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0;padding:32px 0;border-block:1px solid #303741;counter-reset:step}.steps li{counter-increment:step;font-size:20px;font-weight:600}.steps li:before{content:counter(step);display:block;margin-bottom:12px;color:#ff6686;font-size:15px;font-weight:400}.release{margin-top:38px;max-width:64ch;line-height:1.7}.release strong{font-size:18px}.release p{margin-top:8px;color:#bbc6d4}
+    footer{border-top:1px solid #303741;padding-block:26px 40px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;line-height:1.7;color:#bbc6d4}footer p{margin:0;max-width:55ch}
+    @media(max-width:620px){header{align-items:flex-start;flex-direction:column;gap:14px}main{padding-block:34px 52px}.lead{font-size:18px;margin-bottom:32px}.steps{grid-template-columns:repeat(2,1fr);gap:28px 20px}.steps li{font-size:18px}.wrap{width:calc(100% - 40px)}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">FS</span>FuckingShareIT</a>
+    <span class="status">Windows app · In development</span>
+  </header>
+  <main class="wrap">
+    <h1>Sharing a file<br>should be <span>this easy.</span></h1>
+    <p class="lead">A Word document on your laptop. A copy on the other PC. Simple file sharing for Windows PCs on the same private network.</p>
+    <ol class="steps" aria-label="How sharing works">
+      <li>Choose a file</li><li>Choose a PC</li><li>Save a copy</li><li>Done</li>
+    </ol>
+    <div class="release">
+      <strong>Coming soon for Windows.</strong>
+      <p>Set up receiving once on the other PC, then send your file. Your original stays where it is. Downloads will appear here when the app is ready.</p>
+    </div>
+  </main>
+  <footer class="wrap">
+    <p>A <a href="https://crazyentertainment.ch/">Crazy Entertainment</a> project.<br><a href="https://crazyentertainment.ch/impressum.html">Publisher information</a></p>
+    <p>No analytics or file uploads on this page.<br>Website hosted on GitHub Pages.</p>
+  </footer>
+</body>
+</html>
