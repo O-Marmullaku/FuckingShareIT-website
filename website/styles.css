@@ -1,5 +1,6 @@
 /* FuckingShareIT — fuckingshareit.com
-   The app's own theme: charcoal canvas, blue-grey surfaces, one coral red. The product scenes are drawn in the DOM. */
+   The app's own theme: charcoal canvas, blue-grey surfaces, coral for actions. The product scenes are drawn in the DOM.
+   Site-only roles from the folder logo: yellow for headline emphasis, blue for the file moving between PCs. */
 
 :root {
   /* Exactly the app's tokens (src/FuckingShareIT theme) */
@@ -18,6 +19,10 @@
 
   --ink-2: var(--muted);
   --line-2: var(--line);
+
+  /* Site-only roles, never inside the app window */
+  --brand: #ffd23f;
+  --move: var(--info);
 
   /* The app window uses the same palette */
   --app: var(--canvas);
@@ -120,14 +125,14 @@ code { font-family: var(--mono); font-size: .9em; }
 .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end; }
 .platform { display: flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
 .platform svg { width: 34px; height: 17px; flex: none; fill: none; stroke: var(--ink); stroke-width: 2; }
-.platform .hop { stroke: var(--hi); stroke-linecap: round; stroke-width: 2.2; }
+.platform .hop { stroke: var(--move); stroke-linecap: round; stroke-width: 2.2; }
 h1 {
   font: 700 clamp(38px, 4.2vw, 52px)/1.06 var(--display);
   letter-spacing: -.035em;
   text-wrap: balance;
   max-width: 15em;
 }
-.accent { color: var(--hi); }
+.accent { color: var(--brand); }
 .lede { margin-top: 18px; max-width: 40em; font-size: 17px; line-height: 1.6; color: var(--ink-2); text-wrap: pretty; }
 .hero-get { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-bottom: 6px; }
 .hero-get .meta { margin-top: 2px; }
@@ -297,9 +302,9 @@ h1 {
 .link { position: relative; height: clamp(400px, 34vw, 450px); }
 .wire {
   position: absolute; left: -10px; right: -10px; top: 50%; height: 2px; margin-top: -1px;
-  background: repeating-linear-gradient(90deg, #4b5665 0 6px, transparent 6px 12px);
+  background: repeating-linear-gradient(90deg, rgba(112, 183, 255, .45) 0 6px, transparent 6px 12px);
 }
-.saving:not(.checking) .wire { animation: flow-x .45s linear infinite; background-image: repeating-linear-gradient(90deg, var(--hi) 0 6px, transparent 6px 12px); }
+.saving:not(.checking) .wire { animation: flow-x .45s linear infinite; background-image: repeating-linear-gradient(90deg, var(--move) 0 6px, transparent 6px 12px); }
 @keyframes flow-x { to { background-position: 12px 0; } }
 .wifi { position: absolute; left: 50%; top: calc(50% - 46px); width: 26px; height: 26px; translate: -50% 0; fill: none; stroke: var(--ink-2); stroke-width: 1.8; stroke-linecap: round; }
 .wifi circle { fill: var(--ink-2); stroke: none; }
@@ -307,7 +312,7 @@ h1 {
 .token {
   position: absolute; left: 0; top: 50%; z-index: 2; opacity: 0;
   display: grid; place-items: center; width: 40px; height: 46px; translate: -50% -50%;
-  border-radius: 8px; background: var(--raised); box-shadow: 0 0 0 1.5px var(--hi), 0 8px 18px -6px rgba(0, 0, 0, .6);
+  border-radius: 8px; background: var(--raised); box-shadow: 0 0 0 1.5px var(--move), 0 8px 18px -6px rgba(0, 0, 0, .6);
 }
 .token .i-docx { width: 24px; height: 30px; }
 .saving:not(.checking) .token { animation: fly-x 1.6s cubic-bezier(.5, 0, .35, 1) forwards; }
@@ -498,7 +503,7 @@ h2 { font: 700 clamp(26px, 2.8vw, 36px)/1.12 var(--display); letter-spacing: -.0
 .setup-steps li::before {
   content: counter(s); position: absolute; left: 0; top: 0;
   display: grid; place-items: center; width: 28px; height: 28px; border: 1.5px solid var(--line); border-radius: 50%;
-  font: 650 13px/1 var(--sans); color: var(--hi);
+  font: 650 13px/1 var(--sans); color: var(--ink-2);
 }
 .setup-steps h3 { font: 650 18px/1.3 var(--display); letter-spacing: -.015em; }
 .setup-steps p { margin-top: 6px; color: var(--ink-2); line-height: 1.6; }
@@ -621,8 +626,8 @@ h2 { font: 700 clamp(26px, 2.8vw, 36px)/1.12 var(--display); letter-spacing: -.0
   .laptop .screen { height: 470px; }
   .desktop .screen { height: 250px; }
   .link { height: 84px; }
-  .wire { left: 50%; right: auto; top: -8px; bottom: -8px; width: 2px; height: auto; margin: 0 0 0 -1px; background: repeating-linear-gradient(180deg, #4b5665 0 6px, transparent 6px 12px); }
-  .saving:not(.checking) .wire { animation-name: flow-y; background-image: repeating-linear-gradient(180deg, var(--hi) 0 6px, transparent 6px 12px); }
+  .wire { left: 50%; right: auto; top: -8px; bottom: -8px; width: 2px; height: auto; margin: 0 0 0 -1px; background: repeating-linear-gradient(180deg, rgba(112, 183, 255, .45) 0 6px, transparent 6px 12px); }
+  .saving:not(.checking) .wire { animation-name: flow-y; background-image: repeating-linear-gradient(180deg, var(--move) 0 6px, transparent 6px 12px); }
   .wifi { left: calc(50% + 22px); top: 50%; translate: 0 -50%; }
   .link-label { left: calc(50% + 56px); right: auto; top: 50%; translate: 0 -50%; text-align: left; }
   .token { left: 50%; top: 0; }
