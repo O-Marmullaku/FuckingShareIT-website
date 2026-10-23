@@ -1,11 +1,21 @@
 (() => {
   'use strict';
+  // The Windows sharing window plays only while on screen; .still (Pause demo) holds it in place from CSS.
+  const hassle = document.querySelector('.hassle');
+  if (hassle) {
+    let seen = false;
+    const run = () => hassle.classList.toggle('on', seen && !document.hidden);
+    new IntersectionObserver(([entry]) => { seen = entry.isIntersecting; run(); }).observe(hassle);
+    document.addEventListener('visibilitychange', run);
+  }
+
   const demo = document.querySelector('#demo');
   if (!demo) return;
   const root = document.documentElement;
   const modes = [...document.querySelectorAll('.demo-modes button')];
   const steps = [...document.querySelectorAll('.demo-steps button')];
   const motionButton = document.querySelector('#motion');
+  const motionButtons = [motionButton, document.querySelector('#hassle-motion')].filter(Boolean);
   const description = document.querySelector('#demo-description');
   const grid = demo.querySelector('.scene-grid');
   const cursor = demo.querySelector('.demo-cursor');
@@ -242,14 +252,18 @@
       go(next);
     });
   });
-  motionButton.addEventListener('click', () => {
+  function toggleMotion() {
     motion = !motion;
     root.classList.toggle('still', !motion);
-    motionButton.setAttribute('aria-pressed', String(!motion));
-    motionButton.querySelector('span').textContent = motion ? 'Pause demo' : 'Play demo';
+    motionButtons.forEach(button => {
+      button.setAttribute('aria-pressed', String(!motion));
+      button.setAttribute('aria-label', motion ? 'Pause animations' : 'Play animations');
+      button.querySelector('span').textContent = motion ? 'Pause' : 'Play';
+    });
     if (!motion && stateAt(clock).rewind) seek(current.holds[2]); // never freeze on the blank between loops
     sync();
-  });
+  }
+  motionButtons.forEach(button => button.addEventListener('click', toggleMotion));
   demo.classList.add('live');
   chooseMode('file');
   new ResizeObserver(() => { dirty = true; if (!frame) render(); }).observe(grid);

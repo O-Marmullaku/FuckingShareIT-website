@@ -14,8 +14,8 @@
   <meta property="og:url" content="https://fuckingshareit.com/">
   <meta property="og:type" content="website">
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="stylesheet" href="styles.css?v=progressive">
-  <script src="app.js?v=progressive" defer></script>
+  <link rel="stylesheet" href="styles.css?v=compact">
+  <script src="app.js?v=compact" defer></script>
 </head>
 <body>
 <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -56,7 +56,7 @@
         <button type="button" data-mode="file" aria-pressed="true">Send a file</button>
         <button type="button" data-mode="folder" aria-pressed="false">Share a folder</button>
       </div>
-      <button class="motion" id="motion" type="button" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="pause-symbol" d="M4 3v10m8-10v10"/><path class="play-symbol" d="m4 2 10 6-10 6z"/></svg><span>Pause demo</span></button>
+      <button class="motion" id="motion" type="button" aria-label="Pause animations" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="pause-symbol" d="M4 3v10m8-10v10"/><path class="play-symbol" d="m4 2 10 6-10 6z"/></svg><span>Pause</span></button>
     </div>
     <p class="sr-only" id="demo-description">Example: right-click Letter.docx in File Explorer and choose FuckingShareIT. Choose Home PC, then save. The copy appears in Received files on Home PC.</p>
     <ol class="demo-steps" aria-label="Demonstration steps">
@@ -96,30 +96,79 @@
     </div>
   </section>
 
-  <section class="story" aria-labelledby="story-title">
-    <h2 id="story-title">Why I made this</h2>
-    <p>I was sick and tired of Windows' shitty file sharing. I use local accounts. Every time I reinstall a PC, it's the same job: network profiles, discovery settings, permissions and a password prompt that won't accept my PIN. All this to move a file between two PCs I own.</p>
-    <p>So I built FuckingShareIT. Open it on each PC, choose <strong>Set up this PC</strong> and approve the Windows changes. It handles the sharing settings, firewall and receiving folder. After that, I right-click a file, choose the other PC and save it.</p>
-    <p>Local accounts work, including ones without a password. You don't need a Microsoft account or a cloud service. Your files go directly between your PCs.</p>
-    <p class="capabilities">You can also share folders and whole drives, with read-only or read/write access. Windows keeps them available with the app closed.</p>
-    <details class="access-note">
-      <summary>Who can access my files?</summary>
-      <p>Passwordless mode lets devices on your private network open, add or change files in the receiving folder. It relaxes Windows guest and signing protections. Use a network you trust, or choose a sharing account and password in the app. You review the Windows changes before approving them and can undo them under Advanced.</p>
-    </details>
+  <section class="compare" aria-labelledby="story-title">
+    <div class="compare-copy">
+      <h2 id="story-title">Why not just use Windows sharing?</h2>
+      <p>I use local accounts. After every Windows reinstall, I had to dig through settings and forum threads to reach my other PC.</p>
+      <details class="access-note">
+        <summary>Who can access my files?</summary>
+        <p>Other devices on your private network can read, add or change files in the shared inbox. Passwordless mode relaxes Windows guest and signing protections. Use a network you trust, or choose a sharing account and password. You approve the changes first and can undo them under Advanced.</p>
+      </details>
+    </div>
+    <figure class="hassle">
+      <figcaption><span>Windows network sharing</span><button class="motion" id="hassle-motion" type="button" aria-label="Pause animations" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="pause-symbol" d="M4 3v10m8-10v10"/><path class="play-symbol" d="m4 2 10 6-10 6z"/></svg><span>Pause</span></button></figcaption>
+      <p class="sr-only">Example Windows network-sharing problems: the other PC is missing, the network is Public, discovery and file sharing are off, the firewall blocks sharing, a Windows Hello PIN is rejected, and folder access is denied.</p>
+      <div class="hassle-stage" aria-hidden="true">
+        <div class="hassle-window">
+          <div class="hassle-pane">
+            <div class="hassle-title"><svg class="icon"><use href="#computer"></use></svg>Network<span class="window-controls"><svg class="icon"><use href="#minimize"></use></svg><svg class="icon"><use href="#maximize"></use></svg><svg class="icon"><use href="#close"></use></svg></span></div>
+            <div class="hassle-address"><svg class="icon"><use href="#back"></use></svg><span>Network</span></div>
+            <p class="hassle-bar">Network discovery is turned off. Network computers and devices are not visible.</p>
+            <p class="hassle-status">0 items</p>
+          </div>
+          <div class="hassle-pane">
+            <div class="hassle-title">Settings<span class="window-controls"><svg class="icon"><use href="#minimize"></use></svg><svg class="icon"><use href="#maximize"></use></svg><svg class="icon"><use href="#close"></use></svg></span></div>
+            <div class="hassle-content">
+              <small>Network &amp; internet › Ethernet</small>
+              <b class="hassle-heading">Network profile type</b>
+              <p class="hassle-option is-on"><i class="hassle-radio"></i><span><b>Public network (Recommended)</b>Your device is not discoverable on the network.</span></p>
+              <p class="hassle-option"><i class="hassle-radio"></i><span><b>Private network</b>Your device is discoverable on the network.</span></p>
+            </div>
+          </div>
+          <div class="hassle-pane">
+            <div class="hassle-title">Settings<span class="window-controls"><svg class="icon"><use href="#minimize"></use></svg><svg class="icon"><use href="#maximize"></use></svg><svg class="icon"><use href="#close"></use></svg></span></div>
+            <div class="hassle-content">
+              <small>Network &amp; internet › Advanced network settings › Advanced sharing settings</small>
+              <b class="hassle-heading">Public networks<span>Current profile</span></b>
+              <p class="hassle-row">Network discovery<span>Off<i class="hassle-toggle"></i></span></p>
+              <p class="hassle-row">File and printer sharing<span>Off<i class="hassle-toggle"></i></span></p>
+              <p class="hassle-row">File sharing firewall<span>Blocked<i class="hassle-toggle"></i></span></p>
+            </div>
+          </div>
+          <div class="hassle-pane">
+            <div class="hassle-title">Windows Security<span class="window-controls"><svg class="icon"><use href="#close"></use></svg></span></div>
+            <div class="hassle-content">
+              <b class="hassle-heading">Enter network credentials</b>
+              <p>Enter your credentials to connect to: HOME-PC</p>
+              <span class="hassle-field">User name</span>
+              <span class="hassle-field"><span class="hassle-pin">••••</span></span>
+              <p class="hassle-error">The user name or password is incorrect.</p>
+              <span class="hassle-actions"><span class="windows-button">OK</span><span class="windows-button secondary">Cancel</span></span>
+            </div>
+          </div>
+          <div class="hassle-pane">
+            <div class="hassle-title">Network Error<span class="window-controls"><svg class="icon"><use href="#close"></use></svg></span></div>
+            <div class="hassle-content hassle-alert">
+              <span class="hassle-x"><svg class="icon"><use href="#close"></use></svg></span>
+              <p>\\HOME-PC\Files is not accessible. You might not have permission to use this network resource.</p>
+              <p>Access is denied.</p>
+              <span class="hassle-actions"><span class="windows-button">OK</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="hassle-steps" aria-hidden="true"><li>PC not found</li><li>Network is Public</li><li>Sharing is off</li><li>PIN not accepted</li><li>Access denied</li></ol>
+    </figure>
   </section>
 
   <section class="downloads" aria-labelledby="downloads-title">
-    <h2 id="downloads-title">Download</h2>
-    <div class="download-row">
-      <div><h3>Portable EXE <span>Recommended</span></h3><p>Run the same EXE on each PC. Setup can add the Explorer menu for you.</p></div>
-      <button class="secondary-download" type="button" data-inert>Download portable</button>
+    <h2 id="downloads-title">Get FuckingShareIT.</h2>
+    <p class="download-meta">Windows 10 &amp; 11 · 64-bit · Both PCs on the same home network</p>
+    <div class="download-cards">
+      <button class="download-card main" type="button" data-inert><b>Portable<em>Recommended</em><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6l4 4 4-4M2 14h12"/></svg></b><span>Run the EXE on each PC without installing.</span></button>
+      <button class="download-card" type="button" data-inert><b>Installer<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6l4 4 4-4M2 14h12"/></svg></b><span>Installs the app with shortcuts.</span></button>
     </div>
-    <div class="download-row">
-      <div><h3>Installer</h3><p>Adds the app, shortcuts and an optional Explorer menu for your Windows account.</p></div>
-      <button class="secondary-download" type="button" data-inert>Download installer</button>
-    </div>
-    <p class="download-note">Windows 10 &amp; 11 · 64-bit · Both PCs on the same home network</p>
-    <p class="download-note">On Windows 11, find FuckingShareIT under <strong>Show more options</strong> in Explorer.</p>
+    <details class="download-tip"><summary>Windows 11 right-click menu</summary><p>Choose <strong>Show more options</strong> to find FuckingShareIT.</p></details>
   </section>
 </main>
 <footer class="wrap site-footer">
