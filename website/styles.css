@@ -74,7 +74,7 @@ code { font-family: var(--mono); font-size: .9em; }
 }
 .bar { display: flex; align-items: center; gap: 28px; min-height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; font: 700 18px/1 var(--display); letter-spacing: -.02em; text-decoration: none; }
-.brand .mark { width: 30px; height: 30px; flex: none; }
+.brand .mark { width: 42px; height: auto; flex: none; }
 .nav { display: flex; gap: 24px; font-size: 14px; margin-left: 12px; }
 .nav a { text-decoration: none; color: var(--ink-2); padding: 6px 0; }
 .nav a:hover { color: var(--ink); }
@@ -660,7 +660,7 @@ h2 { font: 700 clamp(26px, 2.8vw, 36px)/1.12 var(--display); letter-spacing: -.0
 @media (max-width: 620px) {
   .wrap { width: calc(100% - 32px); }
   .brand { font-size: 17px; }
-  .brand .mark { width: 28px; height: 28px; }
+  .brand .mark { width: 36px; }
   .motion { width: 36px; padding: 0; justify-content: center; }
   .motion-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .nav-get { padding: 0 14px; }
