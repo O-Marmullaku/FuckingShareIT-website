@@ -190,19 +190,20 @@
     clock = t;
     const before = stateAt(Math.max(0, t - 1));
     before.step = stateAt(t).phase;
+    if (demo.classList.contains('rewind')) before.rewind = true; // Keep the new run covered until its state is ready.
     demo.classList.add('snap');
     apply(before);
     void grid.offsetWidth;
     demo.classList.remove('snap');
     render();
   }
-  // A long frame (busy main thread) slows the clock instead of skipping ahead.
+  // A long frame slows the clock instead of skipping ahead. Each finished run starts the other flow.
   function tick(now) {
     frame = requestAnimationFrame(tick);
     const step = Math.max(0, Math.min(now - last, 50));
     last = now;
-    if (clock + step >= current.length) seek(clock + step - current.length);
-    else { clock += step; render(); }
+    if (clock + step < current.length) { clock += step; render(); }
+    else chooseMode(modes[(modes.findIndex(button => button.dataset.mode === mode) + 1) % modes.length].dataset.mode);
   }
   function sync() {
     const run = motion && visible && !document.hidden;
