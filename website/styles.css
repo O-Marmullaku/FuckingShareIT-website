@@ -8,8 +8,9 @@
   --muted: #a7b1c0;
   --yellow: #ffd23f;
   --blue: #70b7ff;
-  --fill: #1a6fdb;
-  --fill-hover: #1560c8;
+  --fill: var(--yellow);
+  --fill-hover: #e6bb2e;
+  --on-fill: #0b0e13;
   --focus: #ffe082;
   --success: #55dbae;
   --app: #0b0d10;
@@ -34,7 +35,7 @@ button, input { caret-color: var(--yellow); }
 .symbols { position: absolute; width: 0; height: 0; overflow: hidden; }
 .icon { display: inline-block; width: 18px; height: 18px; flex: none; vertical-align: middle; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
-.skip { position: absolute; left: 16px; top: -80px; z-index: 10; padding: 10px 16px; background: var(--fill); color: #fff; }
+.skip { position: absolute; left: 16px; top: -80px; z-index: 10; padding: 10px 16px; background: var(--fill); color: var(--on-fill); }
 .skip:focus { top: 10px; }
 .site-header { display: flex; justify-content: space-between; align-items: center; padding-block: 24px; gap: 20px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
@@ -46,7 +47,7 @@ h1 { font-size: clamp(32px, 3.8vw, 46px); line-height: 1.12; font-weight: 700; l
 h1 span { color: var(--yellow); }
 .hero-copy > p { margin-top: 13px; font-size: 17px; color: var(--muted); }
 .download { display: flex; flex-direction: column; align-items: center; gap: 12px; padding-top: 1px; }
-.download-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 50px; padding: 0 24px; border: 0; border-radius: 8px; background: var(--fill); color: #fff; font-size: 15px; font-weight: 600; white-space: nowrap; transition: background-color .15s; }
+.download-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 50px; padding: 0 24px; border: 0; border-radius: 8px; background: var(--fill); color: var(--on-fill); font-size: 15px; font-weight: 600; white-space: nowrap; transition: background-color .15s; }
 .download-button:hover { background: var(--fill-hover); }
 .download-button svg { width: 16px; height: 16px; fill: currentColor; }
 .download > span { color: var(--muted); font-size: 12px; white-space: nowrap; }
@@ -54,7 +55,7 @@ h1 span { color: var(--yellow); }
 .demo-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 23px; }
 .demo-modes { display: flex; gap: 24px; }
 .demo-modes button { padding: 7px 0; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font-size: 14px; }
-.demo-modes button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--blue); }
+.demo-modes button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--yellow); }
 .demo-modes button:hover { color: var(--ink); }
 .motion { display: inline-flex; align-items: center; gap: 7px; border: 0; background: none; padding: 8px 0 8px 8px; color: var(--muted); font-size: 12px; white-space: nowrap; }
 .motion:hover { color: var(--ink); }
@@ -68,7 +69,7 @@ h1 span { color: var(--yellow); }
 .demo-steps button > span { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid #6b7789; border-radius: 50%; font-size: 12px; flex: none; transition: background-color .25s, border-color .25s, color .25s; }
 .demo-steps b { font-weight: 500; }
 .demo-steps button[aria-current="step"] { color: var(--ink); }
-.demo-steps button[aria-current="step"] > span { background: var(--fill); border-color: var(--fill); color: #fff; }
+.demo-steps button[aria-current="step"] > span { background: var(--fill); border-color: var(--fill); color: var(--on-fill); }
 .scene-grid { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; overflow: hidden; overflow: clip; }
 .scene { position: relative; min-width: 0; }
 .scene-owner { margin-top: 12px; color: var(--muted); font-size: 12px; text-align: center; }
