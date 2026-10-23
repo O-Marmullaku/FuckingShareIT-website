@@ -72,11 +72,13 @@ h1 span { color: var(--yellow); }
 .scene-grid { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; overflow: hidden; overflow: clip; }
 .scene { position: relative; min-width: 0; }
 .scene-owner { margin-top: 12px; color: var(--muted); font-size: 12px; text-align: center; }
-.file-demo, .folder-demo { height: 318px; }
+/* Narrow layouts use one shared backdrop behind the overlaid windows. */
+.file-demo, .folder-demo, .scene-grid::before { border: 1px solid #263243; border-radius: 10px; background: linear-gradient(155deg, #1c2939, #121a24 70%); }
+.file-demo, .folder-demo { height: 352px; padding: 16px; }
 .folder-demo { display: none; }
 .demo[data-mode="folder"] .file-demo { display: none; }
 .demo[data-mode="folder"] .folder-demo { display: block; }
-.window { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; font-family: "Segoe UI", sans-serif; font-size: 12px; line-height: 1.4; user-select: none; }
+.window { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; box-shadow: 0 8px 22px #0000005c; font-family: "Segoe UI", sans-serif; font-size: 12px; line-height: 1.4; user-select: none; }
 .window-controls { display: flex; align-items: center; margin-left: auto; gap: 9px; }
 .window-controls .icon { width: 11px; height: 11px; }
 .source-explorer { position: relative; }
@@ -192,6 +194,7 @@ h1 span { color: var(--yellow); }
 
 @media (max-width: 1050px) {
   .scene-grid, .demo-steps { gap: 16px; }
+  .file-demo, .folder-demo { height: 340px; padding: 10px; }
   .explorer aside { width: 73px; }
   .explorer aside > span { font-size: 8px; gap: 3px; }
   .file-row > span, .list-heading > span:last-child { display: none; }
@@ -219,8 +222,9 @@ h1 span { color: var(--yellow); }
   .demo[data-phase="3"] .scene[data-scene="3"] { transition-delay: .06s; }
   .scene-owner { transition: opacity .2s; }
   .demo:not([data-phase="1"]) [data-owner="1"] { opacity: 0; }
-  .file-demo, .folder-demo { height: 364px; max-width: 480px; margin-inline: auto; }
-  .scene[data-scene="2"] :is(.file-demo, .folder-demo) { padding: 24px 0 0 24px; }
+  .file-demo, .folder-demo { height: 398px; max-width: 514px; margin-inline: auto; padding: 16px; border-color: transparent; background: none; }
+  .scene[data-scene="2"] :is(.file-demo, .folder-demo) { padding: 40px 16px 16px 40px; }
+  .scene-grid::before { content: ""; position: absolute; inset: 0 0 auto; box-sizing: border-box; width: min(100%, 514px); height: 398px; margin-inline: auto; }
   .demo-steps { gap: 12px; }
   .demo-steps button { gap: 6px; font-size: 12px; align-items: flex-start; line-height: 1.35; min-height: 38px; }
   .demo-steps button > span { width: 20px; height: 20px; font-size: 11px; }
@@ -255,6 +259,9 @@ h1 span { color: var(--yellow); }
   .demo-steps { gap: 8px; }
   .demo-steps button { font-size: 12px; gap: 5px; }
   .demo-steps button > span { width: 18px; height: 18px; font-size: 10px; }
+  .file-demo, .folder-demo { height: 386px; padding: 10px; }
+  .scene[data-scene="2"] :is(.file-demo, .folder-demo) { padding: 34px 10px 10px 34px; }
+  .scene-grid::before { height: 386px; }
   .file-row > span { display: none; }
   .list-heading > span:last-child { display: none; }
   .address { font-size: 10px; gap: 7px; }

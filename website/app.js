@@ -97,14 +97,15 @@
   function measure() {
     dirty = false;
     const scope = demo.querySelector('.' + mode + '-demo');
+    placeMenu(scope); // Position the menu before measuring its command targets.
     for (const key in targets) {
+      if (key === mode) continue; // Keep the menu origin as the right-click point.
       const [selector, fx, fy] = targets[key], element = demo.querySelector('.' + mode + '-demo ' + selector);
       if (!element || !element.offsetParent) continue; // not laid out: keep the last good point
       const [x, y] = offset(element);
       points[key] = [x + element.offsetWidth * fx, y + element.offsetHeight * fy];
       elements[key] = element;
     }
-    placeMenu(scope);
     entries = [...scope.querySelectorAll('.context-menu > span')].map(element => {
       const [x, y] = offset(element);
       return [element, x, y, x + element.offsetWidth, y + element.offsetHeight];
