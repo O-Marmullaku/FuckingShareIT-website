@@ -6,13 +6,14 @@
   <title>FuckingShareIT — Send a file to the other Windows PC</title>
   <meta name="description" content="Send a file from one Windows PC to another on the same home network. Choose the file, choose the PC, save. No cloud, no account, no USB stick, no settings scavenger hunt.">
   <link rel="canonical" href="https://fuckingshareit.com/">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#f3f2ee">
+  <link rel="icon" href="favicon.svg?v=app-theme" type="image/svg+xml">
+  <meta name="theme-color" content="#0b0d10">
+  <meta name="color-scheme" content="dark">
   <meta property="og:title" content="FuckingShareIT — Send a file to the PC across the room">
   <meta property="og:description" content="Windows PC to Windows PC on the same home network. Choose file, choose PC, save, done.">
   <meta property="og:url" content="https://fuckingshareit.com/">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=app-theme">
   <script>document.documentElement.classList.add('js')</script>
   <script src="app.js" defer></script>
 </head>
@@ -22,7 +23,7 @@
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="#top">
-      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#131417"/><rect x="8.5" y="34" width="19" height="13.5" rx="2.5" fill="none" stroke="#fff" stroke-width="3.5"/><rect x="36.5" y="34" width="19" height="13.5" rx="2.5" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M18 27C21 13.5 43.5 13.5 47 25.5" fill="none" stroke="#ffd21f" stroke-width="5" stroke-linecap="round"/><path d="M40.5 22.5L47.3 27.2L51 19.6" fill="none" stroke="#ffd21f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#131417"/><rect x="8.5" y="34" width="19" height="13.5" rx="2.5" fill="none" stroke="#fff" stroke-width="3.5"/><rect x="36.5" y="34" width="19" height="13.5" rx="2.5" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M18 27C21 13.5 43.5 13.5 47 25.5" fill="none" stroke="#ff5a72" stroke-width="5" stroke-linecap="round"/><path d="M40.5 22.5L47.3 27.2L51 19.6" fill="none" stroke="#ff5a72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>FuckingShareIT</span>
     </a>
     <nav class="nav" aria-label="Sections">
@@ -44,7 +45,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-top">
       <div class="hero-copy">
-        <h1 id="hero-title">Send a file to the PC <span class="mark">across the room.</span></h1>
+        <h1 id="hero-title">Send a file to the PC <span class="accent">across the room.</span></h1>
         <p class="platform">
           <svg viewBox="0 0 40 20" aria-hidden="true"><rect x="1.5" y="9" width="12" height="9" rx="1.6"/><rect x="26.5" y="9" width="12" height="9" rx="1.6"/><path class="hop" d="M8 6.5C12 1 28 1 32 6.5"/></svg>
           Windows PC to Windows PC · same home network
@@ -52,7 +53,7 @@
         <p class="lede">Choose the file. Choose the PC. Save. FuckingShareIT deals with the Windows file-sharing ordeal so you don’t have to&nbsp;— no cloud, no account, no USB stick, no forum threads.</p>
       </div>
       <div class="hero-get">
-        <button class="btn btn-dark" type="button" data-inert>
+        <button class="btn btn-primary" type="button" data-inert>
           <svg class="win" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 0h7.5v7.5H0zM8.5 0H16v7.5H8.5zM0 8.5h7.5V16H0zM8.5 8.5H16V16H8.5z"/></svg>
           Download for Windows
         </button>
@@ -346,20 +347,6 @@ C:\&gt; <b class="caret"></b></pre>
     </div>
   </section>
 
-  <section class="band" aria-labelledby="band-title">
-    <div class="wrap">
-      <h2 id="band-title">Nothing in the middle.</h2>
-      <dl class="facts">
-        <div><dt>No cloud.</dt><dd>The file goes straight from one PC to the other over your own network. Nothing is uploaded, nothing is relayed.</dd></div>
-        <div><dt>No account.</dt><dd>No sign-up, no email address, no subscription. Download it and use it.</dd></div>
-        <div><dt>Nothing new running.</dt><dd>Windows’ built-in file sharing does the receiving. No custom protocol, no background daemon.</dd></div>
-        <div><dt>One small Windows app.</dt><dd>Native .NET Framework 4.8 and WPF. Not Electron, not a browser uploader, not a phone app.</dd></div>
-        <div><dt>Nothing faked.</dt><dd>“Done” means the copy is there and verified. If it isn’t, you’re told what went wrong.</dd></div>
-        <div><dt>Undo.</dt><dd>The Windows changes it makes are recorded, so they can be reversed later.</dd></div>
-      </dl>
-    </div>
-  </section>
-
   <section class="advanced" id="advanced" aria-labelledby="adv-title">
     <div class="wrap adv-grid">
       <div class="adv-copy">
@@ -426,7 +413,7 @@ C:\&gt; <b class="caret"></b></pre>
           <p class="dl-tag">Recommended</p>
           <h3>Portable</h3>
           <p>One EXE. Download it and run it&nbsp;— nothing to install, nothing left behind in the Start menu.</p>
-          <button class="btn btn-dark" type="button" data-inert>
+          <button class="btn btn-primary" type="button" data-inert>
             <svg class="win" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 0h7.5v7.5H0zM8.5 0H16v7.5H8.5zM0 8.5h7.5V16H0zM8.5 8.5H16V16H8.5z"/></svg>
             Download portable EXE
           </button>
@@ -506,9 +493,9 @@ C:\&gt; <b class="caret"></b></pre>
 
   <section class="final" aria-labelledby="final-title">
     <div class="wrap final-inner">
-      <h2 id="final-title">The other PC is right there.<br><span class="mark">Stop emailing yourself.</span></h2>
+      <h2 id="final-title">The other PC is right there.<br><span class="accent">Stop emailing yourself.</span></h2>
       <div class="cta-action" id="cta-action">
-        <button class="btn btn-dark btn-xl" type="button" data-inert>
+        <button class="btn btn-primary btn-xl" type="button" data-inert>
           <svg class="win" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 0h7.5v7.5H0zM8.5 0H16v7.5H8.5zM0 8.5h7.5V16H0zM8.5 8.5H16V16H8.5z"/></svg>
           Download for Windows
         </button>
