@@ -13,8 +13,8 @@
   <meta property="og:description" content="Send a file or share a folder with another Windows PC on your home network.">
   <meta property="og:url" content="https://fuckingshareit.com/">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css?v=explorer-demo">
-  <script src="app.js?v=explorer-demo" defer></script>
+  <link rel="stylesheet" href="styles.css?v=context-menu">
+  <script src="app.js?v=context-menu" defer></script>
 </head>
 <body>
 <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -42,7 +42,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <h1 id="hero-title">Share files between <span>PCs.</span></h1>
-      <p>Send a file or share a folder with another Windows PC.</p>
+      <p>Right-click a file or folder to share it with another Windows PC.</p>
     </div>
     <div class="download">
       <button class="download-button" type="button" data-inert><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 0h7v7H0zM9 0h7v7H9zM0 9h7v7H0zM9 9h7v7H9z"/></svg>Download for Windows</button>
@@ -58,32 +58,21 @@
       </div>
       <button class="motion" id="motion" type="button" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="pause-symbol" d="M4 3v10m8-10v10"/><path class="play-symbol" d="m4 2 10 6-10 6z"/></svg><span>Pause demo</span></button>
     </div>
-    <p class="sr-only" id="demo-description">Example: choose Letter.docx in the Windows file picker, choose Home PC in FuckingShareIT, then save. The copy appears in Received files on Home PC.</p>
+    <p class="sr-only" id="demo-description">Example: right-click Letter.docx in File Explorer and choose FuckingShareIT. Choose Home PC, then save. The copy appears in Received files on Home PC.</p>
     <ol class="demo-steps" aria-label="Demonstration steps">
-      <li><button type="button" data-phase="1"><span>1</span><b>Choose a file</b></button></li>
+      <li><button type="button" data-phase="1"><span>1</span><b>Right-click a file</b></button></li>
       <li><button type="button" data-phase="2"><span>2</span><b>Choose the PC and save</b></button></li>
       <li><button type="button" data-phase="3" aria-current="step"><span>3</span><b>Open it on the other PC</b></button></li>
     </ol>
     <div class="scene-grid" aria-hidden="true">
       <div class="scene" data-scene="1">
-        <div class="file-demo">
-          <div class="window explorer picker">
-            <div class="explorer-title"><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Choose the file to send</span><span class="window-controls"><svg class="icon " aria-hidden="true"><use href="#minimize"></use></svg><svg class="icon " aria-hidden="true"><use href="#maximize"></use></svg><svg class="icon " aria-hidden="true"><use href="#close"></use></svg></span></div>
-            <div class="address"><svg class="icon " aria-hidden="true"><use href="#back"></use></svg><span>This PC <i>/</i> Documents</span></div>
-            <div class="explorer-toolbar">New <svg class="icon " aria-hidden="true"><use href="#chevron"></use></svg><span>Sort</span><span>View</span></div>
-            <div class="explorer-body"><aside><span><svg class="icon " aria-hidden="true"><use href="#home"></use></svg>Home</span><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Desktop</span><span class="side-selected"><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Documents</span><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Downloads</span></aside><div class="file-list"><div class="list-heading"><span>Name</span><span>Type</span></div><div class="file-row"><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg><b>Photos</b><span>File folder</span></div><div class="file-row file-target" data-target="file"><svg class="icon " aria-hidden="true"><use href="#document"></use></svg><b>Letter.docx</b><span>Word document</span></div><div class="file-row"><svg class="icon " aria-hidden="true"><use href="#textfile"></use></svg><b>Notes.txt</b><span>Text document</span></div></div></div>
-            <div class="picker-footer"><span>File name:</span><span class="filename">Letter.docx</span><span class="windows-button" data-target="open">Open</span></div>
-          </div>
-        </div>
-        <div class="folder-demo">
-          <div class="window app advanced"><div class="app-title"><img src="logo.png?v=folder" alt="" width="1316" height="1195"><span>FuckingShareIT</span><span class="window-controls"><svg class="icon " aria-hidden="true"><use href="#minimize"></use></svg><svg class="icon " aria-hidden="true"><use href="#maximize"></use></svg><svg class="icon " aria-hidden="true"><use href="#close"></use></svg></span></div><div class="app-body"><p class="mock-heading">Share folders</p><div class="access-choice"><i class="radio"></i>Trusted network (no password)</div><div class="folder-tree"><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Desktop</span><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Documents</span><span class="expanded"><svg class="icon " aria-hidden="true"><use href="#chevron"></use></svg><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Pictures</span><span class="tree-target" data-target="folder"><i class="checkbox"></i><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Photos</span><span><svg class="icon " aria-hidden="true"><use href="#folder"></use></svg>Downloads</span></div><div class="app-footer"><span class="app-button" data-target="review">Review and share</span></div></div></div>
-        </div>
-        <p class="scene-owner" data-owner="1">Your PC · Windows file picker</p>
+        <div class="file-demo"><div class="window explorer source-explorer"><div class="explorer-title"><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Documents</span><span class="window-controls"><svg class="icon" aria-hidden="true"><use href="#minimize"></use></svg><svg class="icon" aria-hidden="true"><use href="#maximize"></use></svg><svg class="icon" aria-hidden="true"><use href="#close"></use></svg></span></div><div class="address"><svg class="icon" aria-hidden="true"><use href="#back"></use></svg><span>This PC <i>/</i> Documents</span></div><div class="explorer-toolbar">New <svg class="icon" aria-hidden="true"><use href="#chevron"></use></svg><span>Sort</span><span>View</span></div><div class="explorer-body"><aside><span><svg class="icon" aria-hidden="true"><use href="#home"></use></svg>Home</span><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Desktop</span><span class="side-selected"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Documents</span><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Downloads</span></aside><div class="file-list"><div class="list-heading"><span>Name</span><span>Type</span></div><div class="file-row"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg><b>Photos</b><span>File folder</span></div><div class="file-row file-target" data-target="file"><svg class="icon" aria-hidden="true"><use href="#document"></use></svg><b>Letter.docx</b><span>Word document</span></div><div class="file-row"><svg class="icon" aria-hidden="true"><use href="#textfile"></use></svg><b>Notes.txt</b><span>Text document</span></div></div></div><div class="context-menu"><span>Open</span><span>Open with <i>›</i></span><hr><span class="share-command" data-target="share-file"><img src="logo.png?v=folder" alt="" width="1316" height="1195">FuckingShareIT</span><hr><span>Properties</span></div><div class="window-status">3 items</div></div></div>
+        <div class="folder-demo"><div class="window explorer source-explorer"><div class="explorer-title"><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Pictures</span><span class="window-controls"><svg class="icon" aria-hidden="true"><use href="#minimize"></use></svg><svg class="icon" aria-hidden="true"><use href="#maximize"></use></svg><svg class="icon" aria-hidden="true"><use href="#close"></use></svg></span></div><div class="address"><svg class="icon" aria-hidden="true"><use href="#back"></use></svg><span>This PC <i>/</i> Pictures</span></div><div class="explorer-toolbar">New <svg class="icon" aria-hidden="true"><use href="#chevron"></use></svg><span>Sort</span><span>View</span></div><div class="explorer-body"><aside><span><svg class="icon" aria-hidden="true"><use href="#home"></use></svg>Home</span><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Desktop</span><span class="side-selected"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Pictures</span><span><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg>Downloads</span></aside><div class="file-list"><div class="list-heading"><span>Name</span><span>Type</span></div><div class="file-row folder-target" data-target="folder"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg><b>Photos</b><span>File folder</span></div><div class="file-row"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg><b>Wallpapers</b><span>File folder</span></div><div class="file-row"><svg class="icon" aria-hidden="true"><use href="#folder"></use></svg><b>Camera Roll</b><span>File folder</span></div></div></div><div class="context-menu"><span>Open</span><span>Open with <i>›</i></span><hr><span class="share-command" data-target="share-folder"><img src="logo.png?v=folder" alt="" width="1316" height="1195">FuckingShareIT</span><hr><span>Properties</span></div><div class="window-status">3 items</div></div></div>
+        <p class="scene-owner" data-owner="1">Your PC · File Explorer</p>
       </div>
       <div class="scene" data-scene="2">
         <div class="file-demo">
           <div class="window app transfer" data-view="done"><div class="app-title"><img src="logo.png?v=folder" alt="" width="1316" height="1195"><span>FuckingShareIT</span><span class="window-controls"><svg class="icon " aria-hidden="true"><use href="#minimize"></use></svg><svg class="icon " aria-hidden="true"><use href="#maximize"></use></svg><svg class="icon " aria-hidden="true"><use href="#close"></use></svg></span></div><div class="app-body">
-            <div class="app-view send-view"><p class="mock-heading">Send a file</p><div class="chosen-file"><svg class="icon " aria-hidden="true"><use href="#document"></use></svg><span><b>Letter.docx</b><small>Word document</small></span></div><p>Save a copy on another Windows PC.</p><div class="app-footer"><span class="app-button" data-target="choose-pc">Choose a PC</span></div></div>
             <div class="app-view pc-view"><p class="mock-heading">Which PC?</p><p>Choose where to send your file.</p><div class="pc-choice" data-target="pc"><svg class="icon " aria-hidden="true"><use href="#computer"></use></svg><span><b>Home PC</b><small>Receiving is set up</small></span><i class="checkbox"></i></div><div class="app-footer"><span class="app-button" data-target="continue">Continue</span></div></div>
             <div class="app-view save-view"><p class="mock-heading">Ready to save</p><div class="destination"><b>Letter.docx</b><span>On Home PC</span><small>Received files</small></div><p class="original-note">Your original stays here.</p><div class="copy-progress"><i></i></div><p class="copy-label">Copying to Home PC…</p><div class="app-footer"><span class="app-button" data-target="save">Save file</span></div></div>
             <div class="app-view done-view"><span class="success-mark"><svg class="icon " aria-hidden="true"><use href="#check"></use></svg></span><p class="mock-heading">File saved</p><b class="done-name">Letter.docx</b><p>On Home PC · Received files</p><small>The copy matches your original.</small></div>
@@ -111,6 +100,7 @@
   <details class="setup-notes">
     <summary>Setup &amp; other options</summary>
     <div class="notes-body">
+      <p>Enable the Explorer menu once in the app, or leave it checked in the installer. On Windows 11, find FuckingShareIT under <strong>Show more options</strong>.</p>
       <p>On the receiving PC, choose <strong>Receive files on this PC</strong> once. Review the Windows changes before you approve. Receiving works with the app closed.</p>
       <p>Passwordless mode lets devices on your private network read or change files in the shared inbox. It changes Windows guest access and SMB signing settings. Use a network you trust, or choose a dedicated sign-in under Advanced.</p>
       <p>Advanced also has folder and drive sharing, read-only access, saved PCs and mapped drives.</p>
