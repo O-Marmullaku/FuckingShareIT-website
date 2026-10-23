@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FuckingShareIT | Share files between PCs</title>
-  <meta name="description" content="Send a file or share a folder with another Windows PC on your home network.">
+  <meta name="description" content="Share files between Windows PCs on your home network. Local accounts work, no Microsoft account needed.">
   <link rel="canonical" href="https://fuckingshareit.com/">
   <link rel="icon" href="logo.png?v=folder" type="image/png">
   <meta name="theme-color" content="#0b0e13">
   <meta name="color-scheme" content="dark">
   <meta property="og:title" content="FuckingShareIT | Share files between PCs">
-  <meta property="og:description" content="Send a file or share a folder with another Windows PC on your home network.">
+  <meta property="og:description" content="Share files between Windows PCs on your home network. Local accounts work, no Microsoft account needed.">
   <meta property="og:url" content="https://fuckingshareit.com/">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="styles.css?v=context-menu">
-  <script src="app.js?v=context-menu" defer></script>
+  <link rel="stylesheet" href="styles.css?v=fresh-pc">
+  <script src="app.js?v=fresh-pc" defer></script>
 </head>
 <body>
 <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -24,7 +24,6 @@
   <symbol id="image" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2" fill="#edf6ff" stroke="#9da9b8"/><circle cx="16" cy="8" r="2" fill="#ffc548"/><path d="m3 19 6-8 5 5 4-4 4 7" fill="#76aa91"/></symbol>
   <symbol id="computer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></g></symbol>
   <symbol id="home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v11h-7v-7h-4v7H3z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-  <symbol id="router" viewBox="0 0 28 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="13" width="22" height="8" rx="2"/><path d="M6 13V6m16 7V6M9 6a8 8 0 0 1 10 0m-8 3a4 4 0 0 1 6 0"/></g><circle cx="19" cy="17" r="1" fill="currentColor"/><circle cx="22" cy="17" r="1" fill="currentColor"/></symbol>
   <symbol id="shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z" fill="#ffd23f"/><path d="M12 3v17c3-2 8-5 8-8V7z" fill="#1681db"/></symbol>
   <symbol id="check" viewBox="0 0 20 20"><path d="m4 10 4 4 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="back" viewBox="0 0 20 20"><path d="m9 4-6 6 6 6m-6-6h14" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
@@ -94,20 +93,37 @@
       </div>
     </div>
     <div class="demo-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M3 2v20l5-5 4 9 4-2-4-8h8z" fill="#fff" stroke="#111820" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-    <div class="demo-caption"><p><svg class="icon " aria-hidden="true"><use href="#router"></use></svg>Both PCs connect to the same router, by Wi-Fi or cable.</p><small>Example file and PC names</small></div>
   </section>
 
-  <details class="setup-notes">
-    <summary>Setup &amp; other options</summary>
-    <div class="notes-body">
-      <p>Enable the Explorer menu once in the app, or leave it checked in the installer. On Windows 11, find FuckingShareIT under <strong>Show more options</strong>.</p>
-      <p>On the receiving PC, choose <strong>Receive files on this PC</strong> once. Review the Windows changes before you approve. Receiving works with the app closed.</p>
-      <p>Passwordless mode lets devices on your private network read or change files in the shared inbox. It changes Windows guest access and SMB signing settings. Use a network you trust, or choose a dedicated sign-in under Advanced.</p>
-      <p>Advanced also has folder and drive sharing, read-only access, saved PCs and mapped drives.</p>
-      <button class="installer" type="button" data-inert>Download installer</button>
+  <section class="story" aria-labelledby="story-title">
+    <h2 id="story-title">Why I made this</h2>
+    <p>I was sick and tired of Windows' shitty file sharing. I use local accounts. Every time I reinstall a PC, it's the same job: network profiles, discovery settings, permissions and a password prompt that won't accept my PIN. All this to move a file between two PCs I own.</p>
+    <p>So I built FuckingShareIT. Open it on each PC, choose <strong>Set up this PC</strong> and approve the Windows changes. It handles the sharing settings, firewall and receiving folder. After that, I right-click a file, choose the other PC and save it.</p>
+    <p>Local accounts work, including ones without a password. You don't need a Microsoft account or a cloud service. Your files go directly between your PCs.</p>
+    <p class="capabilities">You can also share folders and whole drives, with read-only or read/write access. Windows keeps them available with the app closed.</p>
+    <details class="access-note">
+      <summary>Who can access my files?</summary>
+      <p>Passwordless mode lets devices on your private network open, add or change files in the receiving folder. It relaxes Windows guest and signing protections. Use a network you trust, or choose a sharing account and password in the app. You review the Windows changes before approving them and can undo them under Advanced.</p>
+    </details>
+  </section>
+
+  <section class="downloads" aria-labelledby="downloads-title">
+    <h2 id="downloads-title">Download</h2>
+    <div class="download-row">
+      <div><h3>Portable EXE <span>Recommended</span></h3><p>Run the same EXE on each PC. Setup can add the Explorer menu for you.</p></div>
+      <button class="secondary-download" type="button" data-inert>Download portable</button>
     </div>
-  </details>
+    <div class="download-row">
+      <div><h3>Installer</h3><p>Adds the app, shortcuts and an optional Explorer menu for your Windows account.</p></div>
+      <button class="secondary-download" type="button" data-inert>Download installer</button>
+    </div>
+    <p class="download-note">Windows 10 &amp; 11 · 64-bit · Both PCs on the same home network</p>
+    <p class="download-note">On Windows 11, find FuckingShareIT under <strong>Show more options</strong> in Explorer.</p>
+  </section>
 </main>
-<footer class="wrap site-footer">FuckingShareIT by Crazy Entertainment</footer>
+<footer class="wrap site-footer">
+  <span>Made by <a href="https://marmullaku.ch/">Crazy Entertainment</a></span>
+  <a href="https://github.com/O-Marmullaku/FuckingShareIT-website">Website source</a>
+</footer>
 </body>
 </html>

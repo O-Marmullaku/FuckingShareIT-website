@@ -169,17 +169,6 @@ h1 span { color: var(--yellow); }
 .demo-cursor { position: absolute; left: 0; top: 0; width: 23px; height: 27px; z-index: 5; pointer-events: none; opacity: 0; filter: drop-shadow(0 2px 2px #0006); }
 .demo-cursor svg { width: 100%; height: 100%; }
 .is-playing .demo-cursor { opacity: 1; }
-.demo-caption { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 24px; color: var(--muted); }
-.demo-caption p { display: flex; align-items: center; gap: 9px; font-size: 13px; }
-.demo-caption .icon { width: 24px; height: 21px; color: var(--blue); }
-.demo-caption small { font-size: 11px; white-space: nowrap; }
-.setup-notes { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.setup-notes summary { padding: 17px 0; font-size: 14px; color: var(--muted); cursor: pointer; }
-.setup-notes summary:hover { color: var(--ink); }
-.notes-body { max-width: 70ch; padding: 2px 0 22px; font-size: 14px; line-height: 1.6; color: var(--muted); }
-.notes-body p + p { margin-top: 14px; }
-.notes-body strong { color: var(--ink); font-weight: 500; }
-.installer { padding: 0; margin-top: 17px; border: 0; background: none; font-size: 14px; color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
 .site-footer { padding-block: 22px 30px; color: var(--muted); font-size: 12px; }
 .still *, .still *::before, .still *::after { animation: none !important; transition: none !important; }
 @media (max-width: 1050px) {
@@ -210,8 +199,6 @@ h1 span { color: var(--yellow); }
   .demo-steps button { gap: 6px; font-size: 12px; align-items: flex-start; line-height: 1.35; min-height: 38px; }
   .demo-steps button > span { width: 20px; height: 20px; font-size: 11px; }
   .demo-steps b { padding-top: 2px; }
-  .demo-caption { flex-wrap: wrap; gap: 9px; }
-  .demo-caption small { padding-left: 33px; }
   .app-body { padding: 23px; }
   .app .mock-heading { font-size: 23px; }
   .app p, .app small { font-size: 12px; }
@@ -242,8 +229,6 @@ h1 span { color: var(--yellow); }
   .demo-steps { gap: 8px; }
   .demo-steps button { font-size: 12px; gap: 5px; }
   .demo-steps button > span { width: 18px; height: 18px; font-size: 10px; }
-  .demo-caption p { font-size: 12px; }
-  .demo-caption .icon { flex: none; }
   .file-row > span { display: none; }
   .list-heading > span:last-child { display: none; }
   .address { font-size: 10px; gap: 7px; }
@@ -253,3 +238,34 @@ h1 span { color: var(--yellow); }
 }
 
 .press { filter: brightness(.85); }
+
+h2 { font-size: 25px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; margin-bottom: 20px; }
+.story { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 44px; }
+.story > p, .access-note { max-width: 70ch; }
+.story p { color: var(--muted); font-size: 16px; line-height: 1.65; }
+.story p + p { margin-top: 15px; }
+.story strong { color: var(--ink); font-weight: 600; }
+.story .capabilities { margin-top: 24px; }
+.access-note { margin-top: 18px; }
+.access-note summary { cursor: pointer; width: fit-content; padding-block: 7px; color: var(--blue); font-size: 14px; }
+.access-note p { margin-top: 9px; font-size: 14px; }
+.downloads { padding-block: 44px 36px; }
+.download-row { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-block: 18px; border-top: 1px solid var(--line); }
+.download-row:last-of-type { border-bottom: 1px solid var(--line); }
+.download-row h3 { font-size: 16px; font-weight: 600; }
+.download-row h3 span { margin-left: 10px; color: var(--yellow); font-size: 12px; font-weight: 500; }
+.download-row p { margin-top: 5px; max-width: 60ch; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.secondary-download { flex: none; min-height: 42px; padding: 0 17px; border: 1px solid var(--line); border-radius: 7px; background: var(--raised); color: var(--ink); font-size: 14px; font-weight: 600; transition: border-color .15s; }
+.secondary-download:hover { border-color: var(--blue); }
+.download-note { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.download-note + .download-note { margin-top: 5px; }
+.download-note strong { font-weight: 500; color: var(--ink); }
+.site-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; border-top: 1px solid var(--line); }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--ink); }
+@media (max-width: 560px) {
+  .story { padding-top: 32px; }
+  .story p { font-size: 15px; }
+  .downloads { padding-top: 34px; }
+  .download-row { flex-direction: column; align-items: flex-start; gap: 13px; }
+}
